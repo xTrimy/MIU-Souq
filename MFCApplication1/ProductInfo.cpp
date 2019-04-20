@@ -5,6 +5,8 @@
 #include "MFCApplication1.h"
 #include "ProductInfo.h"
 #include "afxdialogex.h"
+#include "ProductsList.h"
+#include "ContactSeller.h"
 
 
 // ProductInfo dialog
@@ -29,6 +31,10 @@ void ProductInfo::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(ProductInfo, CDialogEx)
 	ON_WM_PAINT()
+	ON_BN_CLICKED(IDCANCEL, &ProductInfo::OnBnClickedOk)
+	ON_BN_CLICKED(IDOK, &ProductInfo::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_BUTTON1, &ProductInfo::OnBnClickedButton1)
+	ON_BN_CLICKED(IDOK4, &ProductInfo::OnBnClickedOk4)
 END_MESSAGE_MAP()
 
 
@@ -45,7 +51,10 @@ void ProductInfo::OnPaint()
 
 
 	CDialogEx::OnPaint();
-
+	std::ifstream CheckFile("./products/" + std::to_string(currentProduct) + "/image2.jpg");
+	if (!CheckFile) {
+		return;
+	}
 	CStatic*  m_picture;    // pointer to a picture control
 	m_picture = (CStatic *)GetDlgItem(PRODUCT_IMG);
 	CImage image;
@@ -90,5 +99,28 @@ void ProductInfo::OnPaint()
 
 
 	m_picture->SetBitmap(bitmap);
+}
 
+
+void ProductInfo::OnBnClickedOk()
+{
+	// TODO: Add your control notification handler code here
+	CDialogEx::OnOK();
+	ProductsList x;
+	x.DoModal();
+}
+
+
+void ProductInfo::OnBnClickedButton1()
+{
+	// TODO: Add your control notification handler code here
+	CDialogEx::OnOK();
+	ContactSeller x;
+	x.DoModal();
+}
+
+
+void ProductInfo::OnBnClickedOk4()
+{
+	// TODO: Add your control notification handler code here
 }

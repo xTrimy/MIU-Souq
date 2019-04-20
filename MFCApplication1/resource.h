@@ -6,7 +6,6 @@
 #define IDOK2                           3
 #define BTN_PREV                        3
 #define IDCANCEL2                       4
-#define IDOK3                           4
 #define BTN_NEXT                        4
 #define DLG_LOGIN                       9
 #define IDM_ABOUTBOX                    0x0010
@@ -18,24 +17,35 @@
 #define IDR_MAINFRAME                   128
 #define IDD_DIALOG1                     135
 #define IDD_PRODUCT_INFO                139
-#define IDD_DIALOG2                     141
-#define IDD_DIALOG3                     145
-#define IDD_DIALOG4                     147
-#define IDD_DIALOG5                     149
+#define IDD_ADD_PRODUCT                 141
+#define IDD_USER_SETTINGS               145
+#define IDD_ADDPRODUCT_IMGS             147
+#define IDD_MY_PRODUCTS                 149
+#define IDD_SIGNUP2                     152
+#define IDD_PROFILE                     153
+#define IDD_MY_WISHLIST                 154
+#define IDD_CONTACT_SELLER              156
 #define IDC_EDIT1                       1000
 #define IDC_EDIT3                       1001
 #define IDC_EDIT10                      1002
 #define IDC_EDIT2                       1003
 #define IDC_EDIT4                       1003
+#define IDC_EDIT15                      1003
 #define IDC_EDIT5                       1004
+#define IDC_EDIT16                      1004
 #define IDC_EDIT6                       1005
+#define IDC_EDIT17                      1005
 #define IDC_EDIT11                      1006
+#define IDC_EDIT18                      1006
 #define IDC_EDIT7                       1007
 #define IDC_EDIT12                      1007
 #define IDC_EDIT8                       1008
 #define IDC_EDIT13                      1008
 #define IDC_EDIT9                       1009
 #define IDC_EDIT14                      1010
+#define IDC_EDIT20                      1010
+#define IDC_EDIT21                      1011
+#define IDC_EDIT19                      1011
 #define IDC_STATIC2                     1020
 #define IDC_BUTTON1                     1021
 #define IDC_BUTTON2                     1022
@@ -65,14 +75,22 @@
 #define BN_View_Prod5                   1047
 #define BN_View_Prod6                   1048
 #define IDC_COMBO2                      1062
+#define IDC_COMBO1                      1084
+#define IDC_RADIO1                      1085
+#define IDC_DATETIMEPICKER1             1086
+#define IDC_RADIO2                      1087
+#define IDC_USER_PIC                    1087
+#define IDPUBLISH                       1088
+#define IDNewProd                       1090
+#define IDNP                            1091
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        151
+#define _APS_NEXT_RESOURCE_VALUE        159
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1084
+#define _APS_NEXT_CONTROL_VALUE         1092
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

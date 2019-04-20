@@ -6,8 +6,8 @@
 #include "CSignUp.h"
 #include "afxdialogex.h"
 #include "MFCApplication1Dlg.h"
-#include <fstream>
-#include <string>
+#include "SignUp2.h"
+
 
 // CSignUp dialog
 
@@ -40,35 +40,9 @@ END_MESSAGE_MAP()
 
 void CSignUp::OnBnSignUp()
 {
-	CFileDialog FileDialog(TRUE,
-		_T("*.jpg"),
-		NULL,
-		OFN_HIDEREADONLY,
-		_T("Jpg Files: (*.jpg)|*.jpg||"));
-	if (FileDialog.DoModal() == IDOK) {
-		// Some code here https://stackoverflow.com/questions/35607986/binary-open-and-copy-image-file-c
-		// Some code here http://www.cplusplus.com/reference/ostream/ostream/write/
-		// Some code here http://www.cplusplus.com/reference/istream/istream/read/
-		// Some code here https://stackoverflow.com/questions/2490661/how-to-load-png-jpeg-images-using-mfc (Convert image to bitmap to load in MFC)
-		CString filePath;
-		filePath = FileDialog.GetPathName();
-
-		std::string fileData;
-		std::ifstream fileIn (filePath, std::ifstream::binary);
-		fileIn.seekg(0, fileIn.end);
-		long size = fileIn.tellg();
-		fileIn.seekg(0);
-
-
-		char * buffer = new char[size];
-		fileIn.read(buffer, size);
-		std::ofstream fileOut ("./image2.jpg", std::ofstream::binary);
-		fileOut.write(buffer, size);
-		fileIn.close();
-		fileOut.close();
-		MessageBox(filePath);
-
-	}
+	CDialogEx::OnOK();
+	SignUp2 x;
+	x.DoModal();
 }
 
 
@@ -76,7 +50,6 @@ void CSignUp::OnBnClickedBack()
 {
 	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
-	CMFCApplication1Dlg test;
-	test.DoModal();
-
+	CMFCApplication1Dlg x;
+	x.DoModal();
 }
