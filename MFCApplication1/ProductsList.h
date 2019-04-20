@@ -40,4 +40,10 @@ public:
 	afx_msg void OnBnClickedViewProd3();
 	afx_msg void OnBnClickedViewProd2();
 	afx_msg void OnBnClickedViewProd1();
+	afx_msg void OnBnClickedButton5();
+	afx_msg void OnBnClickedButton4();
+	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedButton9();
+	afx_msg void OnBnClickedButton8();
+	afx_msg void OnBnClickedOk();
 };
