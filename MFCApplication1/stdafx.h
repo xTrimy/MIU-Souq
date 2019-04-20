@@ -41,7 +41,14 @@ extern int currentProduct;
 #include <fstream>
 #include <afxcontrolbars.h>
 #include <afxcontrolbars.h>
-
+#include <afxcontrolbars.h>
+#include <afxcontrolbars.h>
+#include <afxcontrolbars.h>
+#include <afxcontrolbars.h>
+#include <afxcontrolbars.h>
+#include <afxcontrolbars.h>
+#include <afxcontrolbars.h>
+#include <afxcontrolbars.h>
 
 
 
