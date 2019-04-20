@@ -71,7 +71,6 @@ BEGIN_MESSAGE_MAP(CMFCApplication1Dlg, CDialogEx)
 	ON_BN_CLICKED(IDOK, &CMFCApplication1Dlg::OnBnClickedOk)
 	ON_BN_CLICKED(IDCANCEL, &CMFCApplication1Dlg::OnBnClickedCancel)
 	ON_BN_CLICKED(IDCANCEL2, &CMFCApplication1Dlg::OnBnClickedCancel2)
-	ON_BN_CLICKED(IDOK3, &CMFCApplication1Dlg::OnBnClickedOk3)
 	ON_BN_CLICKED(IDOK2, &CMFCApplication1Dlg::OnBnClickedOk2)
 END_MESSAGE_MAP()
 
@@ -210,13 +209,6 @@ void CMFCApplication1Dlg::OnBnClickedOk()
 	CDialogEx::OnOK();
 	CSignUp test;
 
-	test.DoModal();
-
-}
-
-void CMFCApplication1Dlg::OnBnClickedOk3()
-{
-	ProductTest test;
 	test.DoModal();
 
 }

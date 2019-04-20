@@ -6,6 +6,12 @@
 #include "ProductsList.h"
 #include "afxdialogex.h"
 #include "ProductInfo.h"
+#include "UserProfile.h"
+#include "MyWishlist.h"
+#include "MyProducts.h"
+#include "UserSettings.h"
+#include "MFCApplication1Dlg.h"
+
 // ProductsList dialog
 
 IMPLEMENT_DYNAMIC(ProductsList, CDialogEx)
@@ -36,12 +42,17 @@ BEGIN_MESSAGE_MAP(ProductsList, CDialogEx)
 	ON_BN_CLICKED(BN_View_Prod3, &ProductsList::OnBnClickedViewProd3)
 	ON_BN_CLICKED(BN_View_Prod2, &ProductsList::OnBnClickedViewProd2)
 	ON_BN_CLICKED(BN_View_Prod1, &ProductsList::OnBnClickedViewProd1)
+	ON_BN_CLICKED(IDC_BUTTON5, &ProductsList::OnBnClickedButton5)
+	ON_BN_CLICKED(IDC_BUTTON4, &ProductsList::OnBnClickedButton4)
+	ON_BN_CLICKED(IDC_BUTTON3, &ProductsList::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON9, &ProductsList::OnBnClickedButton9)
+	ON_BN_CLICKED(IDC_BUTTON8, &ProductsList::OnBnClickedButton8)
+	ON_BN_CLICKED(IDOK, &ProductsList::OnBnClickedOk)
 END_MESSAGE_MAP()
 
 
 // ProductsList message handlers
 
-ProductInfo Product;
 CStatic*  m_picture[6];	    // pointer to a picture control
 int page = 0;
 int ProductsId[6] = { -1 };
@@ -154,6 +165,7 @@ void ProductsList::OnBnClickedViewProd1()
 	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
 	currentProduct = ProductsId[0];
+	ProductInfo Product;
 	Product.DoModal();
 }
 
@@ -163,6 +175,7 @@ void ProductsList::OnBnClickedViewProd2()
 	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
 	currentProduct = ProductsId[1];
+	ProductInfo Product;
 	Product.DoModal();
 }
 
@@ -172,6 +185,7 @@ void ProductsList::OnBnClickedViewProd3()
 	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
 	currentProduct = ProductsId[2];
+	ProductInfo Product;
 	Product.DoModal();
 }
 
@@ -181,6 +195,7 @@ void ProductsList::OnBnClickedViewProd4()
 	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
 	currentProduct = ProductsId[3];
+	ProductInfo Product;
 	Product.DoModal();
 }
 
@@ -190,6 +205,7 @@ void ProductsList::OnBnClickedViewProd5()
 	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
 	currentProduct = ProductsId[4];
+	ProductInfo Product;
 	Product.DoModal();
 
 }
@@ -200,5 +216,59 @@ void ProductsList::OnBnClickedViewProd6()
 	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
 	currentProduct = ProductsId[5];
+	ProductInfo Product;
 	Product.DoModal();
+}
+
+
+void ProductsList::OnBnClickedButton5()
+{
+	// TODO: Add your control notification handler code here
+	CDialogEx::OnOK();
+
+	UserProfile x;
+	x.DoModal();
+}
+
+
+void ProductsList::OnBnClickedButton4()
+{
+	// TODO: Add your control notification handler code here
+	CDialogEx::OnOK();
+	MyWishlist x;
+	x.DoModal();
+}
+
+
+void ProductsList::OnBnClickedButton3()
+{
+	// TODO: Add your control notification handler code here
+	CDialogEx::OnOK();
+	MyProducts x;
+	x.DoModal();
+}
+
+
+void ProductsList::OnBnClickedButton9()
+{
+	// TODO: Add your control notification handler code here
+	CDialogEx::OnOK();
+	UserSettings x;
+	x.DoModal();
+}
+
+
+void ProductsList::OnBnClickedButton8()
+{
+	// TODO: Add your control notification handler code here
+	CDialogEx::OnOK();
+	CMFCApplication1Dlg x;
+	x.DoModal();
+}
+
+
+void ProductsList::OnBnClickedOk()
+{
+	// TODO: Add your control notification handler code here
+	CDialogEx::OnOK();
 }
