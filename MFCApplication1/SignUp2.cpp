@@ -6,9 +6,8 @@
 #include "SignUp2.h"
 #include "afxdialogex.h"
 #include "ProductsList.h"
-
+#include "RandomAvatar.h"
 bool photoSelected = false;
-
 // SingUp2 dialog
 
 IMPLEMENT_DYNAMIC(SignUp2, CDialogEx)
@@ -16,7 +15,15 @@ IMPLEMENT_DYNAMIC(SignUp2, CDialogEx)
 SignUp2::SignUp2(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_SIGNUP2, pParent)
 {
-
+	photoSelected = false;
+	RandomAvatar avt;
+	avt.create("img.bmp");
+}
+void SignUp2::GenerateRandomAvat() {
+	photoSelected = false;
+	RandomAvatar avt;
+	avt.create("img.bmp");
+	SignUp2::Invalidate();
 }
 
 SignUp2::~SignUp2()
@@ -42,6 +49,7 @@ END_MESSAGE_MAP()
 
 void SignUp2::OnPaint()
 {
+
 	CPaintDC dc(this); // device context for painting
 						   // TODO: Add your message handler code here
 						   // Do not call CDialogEx::OnPaint() for painting messages
@@ -60,7 +68,7 @@ void SignUp2::OnPaint()
 		imagePath.Format(_T("./userImage.jpg"), currentProduct);
 	}
 	else {
-		imagePath.Format(_T("./userDefault.jpg"), currentProduct);
+		imagePath.Format(_T("./img.bmp"), currentProduct);
 
 	}
 	image.Load(imagePath);
@@ -108,10 +116,10 @@ void SignUp2::OnPaint()
 void SignUp2::OnBnClickedButton1()
 {
 	CFileDialog FileDialog(TRUE,
-		_T("*.jpg;*.png"),
+		_T("*.jpg;*.png;*pgm"),
 		NULL,
 		OFN_HIDEREADONLY,
-		_T("Image Files: (*.jpg,*.png)|*.jpg;*.png"));
+		_T("Image Files: (*.jpg,*.png,*pgm)|*.jpg;*.png;*.pgm"));
 
 
 
@@ -122,7 +130,6 @@ void SignUp2::OnBnClickedButton1()
 		// Some code here https://stackoverflow.com/questions/2490661/how-to-load-png-jpeg-images-using-mfc (Convert image to bitmap to load in MFC)
 		CString filePath;
 		filePath = FileDialog.GetPathName();
-
 		std::string fileData;
 		std::ifstream fileIn(filePath, std::ifstream::binary);
 		fileIn.seekg(0, fileIn.end);
@@ -136,7 +143,7 @@ void SignUp2::OnBnClickedButton1()
 		fileIn.close();
 		fileOut.close();
 		photoSelected = true;
-		SignUp2::OnPaint();
+		SignUp2::Invalidate();
 
 	}
 	// TODO: Add your control notification handler code here
@@ -147,9 +154,7 @@ void SignUp2::OnBnClickedButton1()
 void SignUp2::OnBnClickedButton2()
 {
 	// TODO: Add your control notification handler code here
-	CDialogEx::OnOK();
-	ProductsList x;
-	x.DoModal();
+	GenerateRandomAvat();
 }
 
 
