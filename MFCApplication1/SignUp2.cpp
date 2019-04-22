@@ -8,7 +8,6 @@
 #include "ProductsList.h"
 #include "RandomAvatar.h"
 bool photoSelected = false;
-
 // SingUp2 dialog
 
 IMPLEMENT_DYNAMIC(SignUp2, CDialogEx)
@@ -17,9 +16,14 @@ SignUp2::SignUp2(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_SIGNUP2, pParent)
 {
 	photoSelected = false;
-
 	RandomAvatar avt;
 	avt.create("img.bmp");
+}
+void SignUp2::GenerateRandomAvat() {
+	photoSelected = false;
+	RandomAvatar avt;
+	avt.create("img.bmp");
+	SignUp2::Invalidate();
 }
 
 SignUp2::~SignUp2()
@@ -64,7 +68,7 @@ void SignUp2::OnPaint()
 		imagePath.Format(_T("./userImage.jpg"), currentProduct);
 	}
 	else {
-		imagePath.Format(_T("./userDefault.jpg"), currentProduct);
+		imagePath.Format(_T("./img.bmp"), currentProduct);
 
 	}
 	image.Load(imagePath);
@@ -150,9 +154,7 @@ void SignUp2::OnBnClickedButton1()
 void SignUp2::OnBnClickedButton2()
 {
 	// TODO: Add your control notification handler code here
-	CDialogEx::OnOK();
-	ProductsList x;
-	x.DoModal();
+	GenerateRandomAvat();
 }
 
 

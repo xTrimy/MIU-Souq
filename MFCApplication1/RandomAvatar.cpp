@@ -19,7 +19,6 @@ void RandomAvatar::create(const char* filePath) {
 	_default(sh);
 	setBitmapPixels(sh, pixels);
 	saveBitmap(BMP, filePath, sh, dpi, pixels);
-	system(filePath);
 }
 void _default(Shapes&sh) {
 	for (int i = 0; i < 9; i++) {
@@ -45,6 +44,7 @@ void _default(Shapes&sh) {
 	count = 0;
 	for (int y = 0; y < 5; y++) {
 		for (int x = y; x < sh.width / blockSize - 1 - y; x++) {
+			sh.fill(Colors[count][0], Colors[count][1], Colors[count][2]);
 			sh.rect(x*blockSize, y*blockSize, blockSize, blockSize);
 			count++;
 		}
@@ -54,6 +54,7 @@ void _default(Shapes&sh) {
 	count = 0;
 	for (int y = 0; y < 5; y++) {
 		for (int x = y; x < sh.width / blockSize - 1 - y; x++) {
+			sh.fill(Colors[count][0], Colors[count][1], Colors[count][2]);
 			sh.rect(100 - blockSize - y*blockSize, x*blockSize, blockSize, blockSize);
 			count++;
 		}
@@ -63,14 +64,17 @@ void _default(Shapes&sh) {
 	count = 0;
 	for (int y = 0; y < 5; y++) {
 		for (int x = y; x < sh.width / blockSize - 1 - y; x++) {
+			sh.fill(Colors[count][0], Colors[count][1], Colors[count][2]);
 			sh.rect(100 - blockSize - x * blockSize, 100 - blockSize - y * blockSize, blockSize, blockSize);
 			count++;
 		}
 	}
 
 	//4 Left Side
+	count = 0;
 	for (int y = 0; y < 5; y++) {
 		for (int x = y; x < sh.width / blockSize - 1 - y; x++) {
+			sh.fill(Colors[count][0], Colors[count][1], Colors[count][2]);
 			sh.rect(y * blockSize, 100 - blockSize - x * blockSize, blockSize, blockSize);
 			count++;
 		}
@@ -78,16 +82,12 @@ void _default(Shapes&sh) {
 
 }
 void setBitmapPixels(Shapes sh, SaveToBMP::rgb_data*pixels) {
-	int r, g, b;
-	b = randomColor();
-	g = randomColor();
-	r = randomColor();
 	for (int x = 0; x < sh.width; x++) {
 		for (int y = 0; y < sh.height; y++) {
 			int a = y * sh.width + x;
-			pixels[a].r = (sh.X[x][sh.height - y - 1] + r >= 255) ? 255 : sh.X[x][sh.height - y - 1] + r;
-			pixels[a].g = (sh.X[x][sh.height - y - 1] + g >= 255) ? 255 : sh.X[x][sh.height - y - 1] + g;
-			pixels[a].b = (sh.X[x][sh.height - y - 1] + b >= 255) ? 255 : sh.X[x][sh.height - y - 1] + b;
+			pixels[a].r = sh.X[x][sh.height - y - 1][0];
+			pixels[a].g = sh.X[x][sh.height - y - 1][1];
+			pixels[a].b = sh.X[x][sh.height - y - 1][2];
 		}
 	}
 }
