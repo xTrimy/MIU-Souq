@@ -7,22 +7,60 @@
 #include "afxdialogex.h"
 #include "ProductsList.h"
 #include "RandomAvatar.h"
+#include <ctime>
+
+#pragma warning(disable : 4996)
 bool photoSelected = false;
 // SingUp2 dialog
-
+char fullPath[256];
 IMPLEMENT_DYNAMIC(SignUp2, CDialogEx)
+int ucount;
 
+void createRand() {
+	std::stringstream intToSt;
+
+	photoSelected = false;
+	FILE *u;
+	u = fopen("users.bin","r");
+	if (!u) {
+		std::fstream userCount;
+		userCount.close();
+		userCount.open("users.bin", std::ofstream::out | std::ofstream::binary);
+		userCount << "1";
+		ucount = 1;
+		userCount.close();
+	}
+	else {
+		std::fstream userCount("users.bin", std::ifstream::in | std::ifstream::binary);
+		std::string count;
+		userCount >> count;
+		userCount.close();
+		std::istringstream iss(count);
+		iss >> ucount;
+		ucount++;
+		userCount.open("users.bin", std::ofstream::out | std::ofstream::binary);
+		userCount << ucount;
+		userCount.close();
+	}
+	intToSt << ucount;
+
+	mkdir(intToSt.str().c_str());
+	char dir[4];
+	strcpy(dir, intToSt.str().c_str());
+	strcat(dir, "/");
+	strcpy(fullPath, dir);
+	strcat(fullPath,"pp.bmp");
+	RandomAvatar avt;
+	avt.create(fullPath);
+
+}
 SignUp2::SignUp2(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_SIGNUP2, pParent)
 {
-	photoSelected = false;
-	RandomAvatar avt;
-	avt.create("img.bmp");
+	createRand();
 }
 void SignUp2::GenerateRandomAvat() {
-	photoSelected = false;
-	RandomAvatar avt;
-	avt.create("img.bmp");
+	createRand();
 	SignUp2::Invalidate();
 }
 
@@ -68,7 +106,8 @@ void SignUp2::OnPaint()
 		imagePath.Format(_T("./userImage.jpg"), currentProduct);
 	}
 	else {
-		imagePath.Format(_T("./img.bmp"), currentProduct);
+		CString FilePath(fullPath);
+		imagePath.Format(FilePath, currentProduct);
 
 	}
 	image.Load(imagePath);

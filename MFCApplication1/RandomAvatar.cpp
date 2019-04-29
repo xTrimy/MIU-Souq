@@ -31,13 +31,13 @@ void _default(Shapes&sh) {
 	int count;
 	sh.background(255);
 
-	//   ------1-Top---->
+	//   --------Top---->
 	//   |              |
-	//   |              2
+	//   |              |
 	//   |              |
 	// Left           Right
-	//   4              | 
-	//   <----Bottom--3-V   
+	//   |              | 
+	//   <----Bottom----V   
 
 
 	//1 Top Side

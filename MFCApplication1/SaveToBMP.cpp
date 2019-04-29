@@ -67,12 +67,15 @@ void SaveToBMP::save_bitmap(const char *file_name, int width, int height, int dp
 	bih.ppm_y = ppm;
 	bih.clr_used = 0;
 	bih.clr_important = 0;
-
+	std::ofstream ofs(file_name, std::ofstream::out|std::fstream::trunc);
+	ofs << "";
+	ofs.close();
 	image = fopen(file_name, "wb");
+		fwrite(&bfh, 1, 14, image);
+		fwrite(&bih, 1, sizeof(bih), image);
 
 	// compiler woes so we will just use the constant 14 we know we have
-	fwrite(&bfh, 1, 14, image);
-	fwrite(&bih, 1, sizeof(bih), image);
+
 
 	// write out pixel data, one last important this to know is the ordering is backwards
 	// we have to go BGR as opposed to RGB
