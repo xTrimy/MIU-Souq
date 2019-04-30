@@ -1,3 +1,2 @@
-﻿  SignUp2.cpp
-c:\users\pc\source\repos\mfcapplication1\mfcapplication1\signup2.cpp(144): warning C4244: 'initializing': conversion from 'std::streamoff' to 'long', possible loss of data
+﻿  LINK : C:\Users\PC\source\repos\MFCApplication1\x64\Debug\MFCApplication1.exe not found or not built by the last incremental link; performing full link
   MFCApplication1.vcxproj -> C:\Users\PC\source\repos\MFCApplication1\x64\Debug\MFCApplication1.exe
