@@ -8,48 +8,23 @@
 #include "ProductsList.h"
 #include "RandomAvatar.h"
 #include <ctime>
-
 #pragma warning(disable : 4996)
 bool photoSelected = false;
-// SingUp2 dialog
 char fullPath[256];
+
+// SingUp2 dialog
 IMPLEMENT_DYNAMIC(SignUp2, CDialogEx)
-int ucount;
 
 void createRand() {
 	std::stringstream intToSt;
-
-	photoSelected = false;
-	FILE *u;
-	u = fopen("users.bin","r");
-	if (!u) {
-		std::fstream userCount;
-		userCount.close();
-		userCount.open("users.bin", std::ofstream::out | std::ofstream::binary);
-		userCount << "1";
-		ucount = 1;
-		userCount.close();
-	}
-	else {
-		std::fstream userCount("users.bin", std::ifstream::in | std::ifstream::binary);
-		std::string count;
-		userCount >> count;
-		userCount.close();
-		std::istringstream iss(count);
-		iss >> ucount;
-		ucount++;
-		userCount.open("users.bin", std::ofstream::out | std::ofstream::binary);
-		userCount << ucount;
-		userCount.close();
-	}
-	intToSt << ucount;
-
-	mkdir(intToSt.str().c_str());
+	intToSt << currentSignUpUser;
 	char dir[4];
 	strcpy(dir, intToSt.str().c_str());
 	strcat(dir, "/");
 	strcpy(fullPath, dir);
 	strcat(fullPath,"pp.bmp");
+
+	photoSelected = false;
 	RandomAvatar avt;
 	avt.create(fullPath);
 
@@ -102,14 +77,8 @@ void SignUp2::OnPaint()
 	m_picture = (CStatic *)GetDlgItem(IDC_USER_PIC);
 	CImage image;
 	CString imagePath;
-	if (photoSelected) {
-		imagePath.Format(_T("./userImage.jpg"), currentProduct);
-	}
-	else {
-		CString FilePath(fullPath);
-		imagePath.Format(FilePath, currentProduct);
-
-	}
+	CString FilePath(fullPath);
+	imagePath = FilePath;
 	image.Load(imagePath);
 	// Resizing Image Values <START>
 	int iNewWidth;
@@ -155,10 +124,10 @@ void SignUp2::OnPaint()
 void SignUp2::OnBnClickedButton1()
 {
 	CFileDialog FileDialog(TRUE,
-		_T("*.jpg;*.png;*pgm"),
+		_T("*.jpg;*.png;*bmp"),
 		NULL,
 		OFN_HIDEREADONLY,
-		_T("Image Files: (*.jpg,*.png,*pgm)|*.jpg;*.png;*.pgm"));
+		_T("Image Files: (*.jpg,*.png,*bmp)|*.jpg;*.png;*.bmp"));
 
 
 
@@ -177,7 +146,7 @@ void SignUp2::OnBnClickedButton1()
 		char * buffer = new char[size];
 		fileIn.read(buffer, size);
 		std::ofstream fileOut;
-		fileOut.open("./userImage.jpg", std::ofstream::binary);
+		fileOut.open(fullPath, std::ofstream::binary);
 		fileOut.write(buffer, size);
 		fileIn.close();
 		fileOut.close();

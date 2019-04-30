@@ -9,7 +9,8 @@
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-int currentProduct = 42;
+int currentProduct = 0;
+int currentSignUpUser = 0;
 
 // CMFCApplication1App
 

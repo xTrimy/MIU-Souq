@@ -3,6 +3,7 @@
 // or project specific include files that are used frequently,
 // but are changed infrequently
 extern int currentProduct;
+extern int currentSignUpUser;
 #pragma once
 
 #ifndef VC_EXTRALEAN
