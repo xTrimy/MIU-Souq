@@ -21,7 +21,7 @@ c:\users\pc\source\repos\mfcapplication1\mfcapplication1\shapes.cpp(45): warning
 c:\users\pc\source\repos\mfcapplication1\mfcapplication1\shapes.cpp(46): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 c:\users\pc\source\repos\mfcapplication1\mfcapplication1\shapes.cpp(47): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   SignUp2.cpp
-c:\users\pc\source\repos\mfcapplication1\mfcapplication1\signup2.cpp(148): warning C4244: 'initializing': conversion from 'std::streamoff' to 'long', possible loss of data
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\signup2.cpp(149): warning C4244: 'initializing': conversion from 'std::streamoff' to 'long', possible loss of data
   UserProfile.cpp
   UserSettings.cpp
   Generating Code...

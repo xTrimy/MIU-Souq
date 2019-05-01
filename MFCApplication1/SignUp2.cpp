@@ -20,12 +20,12 @@ int ucount;
 void createRand() {
 	std::stringstream intToSt;
 	intToSt << currentSignUpUser;
+
 	char dir[4];
 	strcpy(dir, intToSt.str().c_str());
 	strcat(dir, "/");
 	strcpy(fullPath, dir);
 	strcat(fullPath,"pp.bmp");
-
 	photoSelected = false;
 	RandomAvatar avt;
 	avt.create(fullPath);
@@ -81,6 +81,7 @@ void SignUp2::OnPaint()
 	CString imagePath;
 	CString FilePath(fullPath);
 	imagePath = FilePath;
+
 
 	image.Load(imagePath);
 	// Resizing Image Values <START>
