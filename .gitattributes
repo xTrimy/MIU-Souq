@@ -1,1 +1,2 @@
 *.ipch filter=lfs diff=lfs merge=lfs -text
+.vs/MFCApplication1/v15/ipch/91e00766a0686480.ipch filter=lfs diff=lfs merge=lfs -text

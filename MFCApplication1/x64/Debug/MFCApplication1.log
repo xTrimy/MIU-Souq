@@ -1,2 +1,29 @@
-﻿  LINK : C:\Users\PC\source\repos\MFCApplication1\x64\Debug\MFCApplication1.exe not found or not built by the last incremental link; performing full link
+﻿  MFCApplication1Dlg.cpp
+  MyProducts.cpp
+  MyWishlist.cpp
+  ProductInfo.cpp
+  ProductTest.cpp
+  ProductsList.cpp
+  RandomAvatar.cpp
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\randomavatar.cpp(18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\randomavatar.cpp(30): warning C4101: 'Arr': unreferenced local variable
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\randomavatar.cpp(88): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\randomavatar.cpp(89): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\randomavatar.cpp(90): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  SaveToBMP.cpp
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\savetobmp.cpp(14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\savetobmp.cpp(92): warning C4838: conversion from 'float' to 'unsigned char' requires a narrowing conversion
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\savetobmp.cpp(91): warning C4244: 'initializing': conversion from 'float' to 'unsigned char', possible loss of data
+  Shapes.cpp
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\shapes.cpp(29): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\shapes.cpp(43): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\shapes.cpp(45): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\shapes.cpp(46): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\shapes.cpp(47): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  SignUp2.cpp
+c:\users\pc\source\repos\mfcapplication1\mfcapplication1\signup2.cpp(148): warning C4244: 'initializing': conversion from 'std::streamoff' to 'long', possible loss of data
+  UserProfile.cpp
+  UserSettings.cpp
+  Generating Code...
+  LINK : C:\Users\PC\source\repos\MFCApplication1\x64\Debug\MFCApplication1.exe not found or not built by the last incremental link; performing full link
   MFCApplication1.vcxproj -> C:\Users\PC\source\repos\MFCApplication1\x64\Debug\MFCApplication1.exe

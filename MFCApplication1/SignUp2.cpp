@@ -14,6 +14,8 @@ char fullPath[256];
 
 // SingUp2 dialog
 IMPLEMENT_DYNAMIC(SignUp2, CDialogEx)
+int ucount;
+
 
 void createRand() {
 	std::stringstream intToSt;
@@ -79,6 +81,7 @@ void SignUp2::OnPaint()
 	CString imagePath;
 	CString FilePath(fullPath);
 	imagePath = FilePath;
+
 	image.Load(imagePath);
 	// Resizing Image Values <START>
 	int iNewWidth;
@@ -128,6 +131,7 @@ void SignUp2::OnBnClickedButton1()
 		NULL,
 		OFN_HIDEREADONLY,
 		_T("Image Files: (*.jpg,*.png,*bmp)|*.jpg;*.png;*.bmp"));
+
 
 
 
